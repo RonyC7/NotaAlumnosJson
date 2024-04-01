@@ -40,12 +40,31 @@
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonMostrar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Curso1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Curso2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Curso3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Curso4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Curso5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Curso6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Curso7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Curso8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewDatos
             // 
             this.dataGridViewDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nombre,
+            this.Curso1,
+            this.Curso2,
+            this.Curso3,
+            this.Curso4,
+            this.Curso5,
+            this.Curso6,
+            this.Curso7,
+            this.Curso8});
             this.dataGridViewDatos.Location = new System.Drawing.Point(28, 265);
             this.dataGridViewDatos.Name = "dataGridViewDatos";
             this.dataGridViewDatos.RowHeadersWidth = 51;
@@ -154,6 +173,70 @@
             this.buttonEliminar.TabIndex = 10;
             this.buttonEliminar.Text = "Eliminar Alumno";
             this.buttonEliminar.UseVisualStyleBackColor = false;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre Alumno";
+            this.Nombre.MinimumWidth = 6;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 125;
+            // 
+            // Curso1
+            // 
+            this.Curso1.HeaderText = "Matematicas";
+            this.Curso1.MinimumWidth = 6;
+            this.Curso1.Name = "Curso1";
+            this.Curso1.Width = 125;
+            // 
+            // Curso2
+            // 
+            this.Curso2.HeaderText = "Fisica";
+            this.Curso2.MinimumWidth = 6;
+            this.Curso2.Name = "Curso2";
+            this.Curso2.Width = 125;
+            // 
+            // Curso3
+            // 
+            this.Curso3.HeaderText = "Programación";
+            this.Curso3.MinimumWidth = 6;
+            this.Curso3.Name = "Curso3";
+            this.Curso3.Width = 125;
+            // 
+            // Curso4
+            // 
+            this.Curso4.HeaderText = "Algebra";
+            this.Curso4.MinimumWidth = 6;
+            this.Curso4.Name = "Curso4";
+            this.Curso4.Width = 125;
+            // 
+            // Curso5
+            // 
+            this.Curso5.HeaderText = "Quimica";
+            this.Curso5.MinimumWidth = 6;
+            this.Curso5.Name = "Curso5";
+            this.Curso5.Width = 125;
+            // 
+            // Curso6
+            // 
+            this.Curso6.HeaderText = "Estructura de datos";
+            this.Curso6.MinimumWidth = 6;
+            this.Curso6.Name = "Curso6";
+            this.Curso6.Width = 125;
+            // 
+            // Curso7
+            // 
+            this.Curso7.HeaderText = "Compiladores";
+            this.Curso7.MinimumWidth = 6;
+            this.Curso7.Name = "Curso7";
+            this.Curso7.Width = 125;
+            // 
+            // Curso8
+            // 
+            this.Curso8.HeaderText = "Automatas y lenguajes";
+            this.Curso8.MinimumWidth = 6;
+            this.Curso8.Name = "Curso8";
+            this.Curso8.Width = 125;
             // 
             // Form1
             // 
@@ -194,6 +277,15 @@
         private System.Windows.Forms.Button buttonGuardar;
         private System.Windows.Forms.Button buttonMostrar;
         private System.Windows.Forms.Button buttonEliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Curso1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Curso2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Curso3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Curso4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Curso5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Curso6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Curso7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Curso8;
     }
 }
 

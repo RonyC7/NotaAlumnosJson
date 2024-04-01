@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 
@@ -103,8 +104,95 @@ namespace NotaAlumnosJson
 
         private void buttonMostrar_Click(object sender, EventArgs e)
         {
+            if (dataGridViewDatos.IsHandleCreated)
+            {
+                dataGridViewDatos.Rows.Clear();
 
+                foreach (var alumno in listaAlumnos)
+                {
+                    DataGridViewRow row = new DataGridViewRow();
+
+                    row.Cells.Add(new DataGridViewTextBoxCell { Value = alumno.Nombre });
+
+                    foreach (var curso in ObtenerNombresCursosPredeterminados())
+                    {
+                        row.Cells.Add(new DataGridViewTextBoxCell { Value = ObtenerNotaCurso(alumno, curso) });
+                    }
+
+                    dataGridViewDatos.Rows.Add(row);
+                }
+            }
+            else
+            {
+                MessageBox.Show("El control DataGridView aún no ha sido creado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        private List<string> ObtenerNombresCursosPredeterminados()
+        {
+            return new List<string>
+    {
+        "Matematicas",
+        "Fisica",
+        "Programacion",
+        "Algebra",
+        "Quimica",
+        "Estructura de datos",
+        "Compiladores",
+        "Automatas y lenguajes"
+    };
+        }
+
+        private string ObtenerNotaCurso(Alumno alumno, string nombreCurso)
+        {
+            var curso = alumno.Cursos.FirstOrDefault(c => c.Nombre == nombreCurso);
+            return curso != null ? curso.Nota.ToString() : "";
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewDatos.SelectedRows.Count > 0)
+            {
+                string nombreAlumno = dataGridViewDatos.SelectedRows[0].Cells[0].Value.ToString();
+                DialogResult result = MessageBox.Show("¿Está seguro de eliminar al alumno '" + nombreAlumno + "'?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    EliminarAlumno(nombreAlumno);
+                    ActualizarDataGridView();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un alumno para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void EliminarAlumno(string nombreAlumno)
+        {
+            listaAlumnos.RemoveAll(alumno => alumno.Nombre == nombreAlumno);
+        }
+
+        private void ActualizarDataGridView()
+        {
+            dataGridViewDatos.Rows.Clear();
+            foreach (var alumno in listaAlumnos)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = alumno.Nombre });
+                foreach (var curso in ObtenerNombresCursosPredeterminados())
+                {
+                    row.Cells.Add(new DataGridViewTextBoxCell { Value = ObtenerNotaCurso(alumno, curso) });
+                }
+                dataGridViewDatos.Rows.Add(row);
+            }
+        }
+
+        private void dataGridViewDatos_SelectionChanged(object sender, EventArgs e)
+        {
+            dataGridViewDatos.ClearSelection();
+        }
+        
+
     }
 
     public class Curso
