@@ -130,6 +130,7 @@
             this.buttonGuardar.TabIndex = 8;
             this.buttonGuardar.Text = "Guardar Alumno";
             this.buttonGuardar.UseVisualStyleBackColor = false;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
             // 
             // buttonMostrar
             // 
@@ -141,6 +142,7 @@
             this.buttonMostrar.TabIndex = 9;
             this.buttonMostrar.Text = "Mostrar Alumnos";
             this.buttonMostrar.UseVisualStyleBackColor = false;
+            this.buttonMostrar.Click += new System.EventHandler(this.buttonMostrar_Click);
             // 
             // buttonEliminar
             // 
